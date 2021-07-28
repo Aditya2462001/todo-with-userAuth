@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/edit.css'%}">
+    <link rel="stylesheet" href="{%static 'css/responsive.css' %}">
+    <title>Edit Post</title>
+</head>
+<body>
+    <div class="edit-container">
+        <div class="title">
+            <h2>Edit The Todo</h2>
+            <button><a href="{% url 'home' %}"> Cancel</a></button>
+        </div>
+        <form  method="POST">
+            {% csrf_token %}
+            <div class="todo-content">
+                <input type="text" name="content" placeholder="Enter What to Do" value="{{content.content}}" required />
+            </div>
+            <div class="send-btn">
+                <button type="submit" class="send">Add</button>
+            </div>
+        </form>
+
+    </div>
+    
+</body>
+</html>

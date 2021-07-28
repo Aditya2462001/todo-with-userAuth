@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    min-height: 100vh;
+    background: url(../background/back4.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.register-section
+{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-section .container
+{
+    width: 400px;
+    height: 660px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+
+}
+.message-section
+{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    width: 50%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    z-index: 11111;
+    animation: topbottom 1s ease;
+    transition: all 1s ease;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2),-1px -1px rgba(0,0,0,0.2);
+}
+.message-section.active
+{
+    top: -50%;
+}
+.message-section p
+{
+    color:rgb(27, 158, 27);
+    font-size: 16px;
+    font-weight: 500;
+}
+.message-section p.warning
+{
+    color: red;
+}
+.message-section button
+{
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    cursor: pointer;
+
+}
+@keyframes topbottom
+{
+    0%
+    {
+        top: -50%;
+    }
+    100%
+    {
+        top: 30px;
+    }
+}
+.register-section .section-title
+{
+    margin: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+
+}
+.register-section .register-form .form-item
+{
+    margin: 20px auto;
+    display: flex;
+    width: 100%;
+}
+.register-section .register-form .form-item input
+{
+    height: 35px;
+    width: 100%;
+    padding: 0px 10px;
+    border: none;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2),-1px -1px 2px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-section .register-form .form-item:nth-child(9) input
+{
+    box-shadow: 0 0 0 rgba(0,0,0,0.2);
+}
+.register-section .form-item .form-control-img
+{
+    padding-top:10px ;
+    display: block;
+    /* background-color: green; */
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.2);
+}
+.register-section .register-form .form-btn
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.register-section .register-form .form-btn button
+{
+    padding:10px 5rem;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background:linear-gradient(to right , rgba(16, 74, 235, 0.856),rgba(115, 209, 247, 0.568));
+    box-shadow: 2px 2px 3px rgba(16, 74, 235, 0.856);
+    cursor: pointer;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+.register-section .register-form .form-btn button::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 0px 30px 30px 0px;
+    background: linear-gradient(to bottom,rgba(49, 100, 238, 0.856),rgba(27, 163, 216, 0.678));
+    transition: all 0.5s ease;
+    z-index: -1;
+
+}
+.register-section .register-form .form-btn button:hover::before
+{
+    border-radius: 30px;
+    width: 100%;
+
+}
+.register-section .have-account
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+.register-section .have-account p
+{
+    padding-right: 10px;
+    font-size: 13px;
+}
+.register-section .have-account a
+{
+    font-size: 14px;
+}
+
+/* responsive ------------------- */
+@media (max-width:408px)
+{
+    .register-section .container
+    {
+        margin: 10px;
+        width: 350px;
+    }
+    .register-section .register-form .form-item
+    {
+        width: 95%;
+    }
+
+}
+@media (max-width:408px)
+{
+    .register-section .container
+    {
+        width: 330px;
+        margin: 10px;
+    }
+    .register-section .register-form .form-item
+    {
+        width: 90%;
+    }
+    
+
+}

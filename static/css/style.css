@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background:url(../background/back2.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+a
+{
+    text-decoration: none;
+}
+.main-section
+{
+    width: 950px;
+    height: 600px;
+    background-color: #fff;
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.2),-2px -2px 3px rgba(0,0,0,0.2);
+}
+.left-section
+{
+    flex: 0 0 35%;
+    height: 100%;
+    width: 100%;
+    border-right: 2px solid gray;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.close_toggle
+{
+    display: none;
+}
+.left-section .img-div
+{
+    /* background-color: green; */
+    margin: 40px;
+    margin-bottom: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2),-1px -1px 3px rgba(0,0,0,0.2);
+}
+.left-section .img-div img
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 50%;
+}
+.left-section .info-section
+{
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: green; */
+}
+.left-section .info-section p
+{
+    margin: 8px 5px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.left-section .info-section p span
+{
+    display: inline-block;
+    color: #383ECF;
+    font-weight: 500;
+    font-size: 14px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.left-section .logout-section
+{
+    margin: 10px 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.left-section .logout-section button
+{
+    padding: 10px 5rem;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to bottom,rgba(31, 168, 231, 0.836),rgba(34, 19, 241, 0.712));
+    z-index: 1;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+.left-section .logout-section button::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background:linear-gradient(to right,rgba(13, 110, 238, 0.89),rgba(13, 201, 248, 0.637));
+    transition: all 0.5s ease;
+    z-index: -1;
+
+}
+.left-section .logout-section button:hover:before
+{
+    animation: left_right 4s ease;
+    width: 100%;
+}
+@keyframes left_right
+{
+    0%
+    {
+        width: 0%;
+    }
+    100%
+    {
+        width: 100%;
+    }
+}
+.left-section .logout-section button a
+{
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/*------------------- right Section ------------------------------------ */
+.right-section
+{
+    flex: 0 0 65%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.right-section .heading-sec
+{
+    display: flex;
+    width: 97%;
+    margin: 9px;
+    padding:5px 10px;
+    justify-content: space-between;
+    /* background-color: green; */
+}
+.right-section .heading-sec p
+{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 1;
+    position: relative;
+}
+.right-section .heading-sec p::before
+{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom,rgba(31, 168, 231, 0.836),rgba(34, 19, 241, 0.712));
+    transition: all 0.5s ease;
+    border-radius: 5px;
+    z-index: -1;
+}
+.right-section .heading-sec p:hover:before
+{
+    height: 100%;
+}
+.right-section .heading-sec .p-toggle-sec
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+.right-section .heading-sec .toggle_btn
+{
+    display: none;
+}
+.right-section .input-block form
+{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin:10px;
+    padding:0px 10px;
+    padding-left: 0;
+    justify-content: space-between;
+}
+.right-section .input-block form .todo-content
+{
+    flex: 0.8;
+    margin: 0px 10px;
+}
+.right-section .input-block form .todo-content input
+{
+    width: 100%;
+    height: 35px;
+    padding: 0px 10px;
+    border: none;
+    box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25),-1px -1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.right-section .input-block form .send-btn 
+{
+    flex: 0.2;
+    margin-right:10px;
+}
+.right-section .input-block form .send-btn button
+{
+    width: 90%;
+    height: 35px;
+    text-align: center;
+    background-color: black;
+    border-radius: 5px ;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+.right-section .input-block form .send-btn button::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom,rgba(31, 168, 231, 0.836),rgba(34, 19, 241, 0.712));
+    transition: all 0.5s ease;
+    border-radius: 5px;
+    z-index: -1;
+}
+.right-section .input-block form .send-btn button:hover:before
+{
+    height: 100%;
+    bottom: 0;
+}
+.right-section .input-block form .send-btn button img
+{
+    height: 20px;
+    width: 20px;
+    margin:0px 5px;
+}
+.right-section .all-to-do-list
+{
+    /* background-color: green; */
+    margin: 10px;
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.right-section .all-to-do-list::-webkit-scrollbar
+{
+    width: 5px;
+}
+.right-section .all-to-do-list::-webkit-scrollbar-thumb
+{
+    background-color: #333;
+    border-radius: 10px;
+}
+.right-section .all-to-do-list .todo-item
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0px;
+    background-color: #8fe6fcf3;
+    border-radius: 5px;
+    transition: all 1s ease;
+    position: relative;
+    z-index: 1;
+}
+.right-section .all-to-do-list .todo-item::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(to left , rgba(3, 162, 236, 0.801),rgba(17, 208, 233, 0.76));
+    z-index: -1;
+    transition: all 1s ease;
+    
+}
+.right-section .all-to-do-list .todo-item:hover::before
+{
+    width: 100%;
+}
+.right-section .all-to-do-list .todo-item:nth-of-type(even)
+{
+    background-color: #9fd8f3f3;
+}
+.right-section .all-to-do-list .todo-item .todo-content
+{
+    flex:0.7;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+}
+.right-section .all-to-do-list .todo-item .todo-content span
+{
+    font-size: 10px;
+    color: #333;
+    padding-top: 5px;
+}
+.right-section .all-to-do-list .todo-item .action-btns
+{
+    flex:0.2;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0px 5px;
+}
+.right-section .all-to-do-list .todo-item .action-btns button
+{
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 3px;
+    cursor: pointer;
+    text-align: center;
+}
+.right-section .all-to-do-list .todo-item .action-btns button:nth-child(2)
+{
+    padding-left: 10px;
+}
+.right-section .all-to-do-list .todo-item .action-btns button img
+{
+    height: 20px;
+    width: 20px;
+    transition: all 0.5s ease;
+}
+.right-section .all-to-do-list .todo-item .action-btns button img:hover
+{
+    transform: scale(1.5);
+}
+.right-section .all-to-do-list .todo-item .action-btns button a
+{
+    color: white;
+}
+.right-section .all-to-do-list .todo-item .action-btns button a img
+{
+    width: 20px;
+    height: 20px;
+}
+
+
+
+/*---------------------------- delete Section --------------------------------- */
+.delete-section
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 150px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 3px rgba(0,0,0,0.2),-2px -2px 4px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform:scale(0) translate(-50%,-50%) ;
+    transition: all 0.5s ease;
+    z-index: 110;
+}
+.delete-section.active
+{
+    transform: scale(1) translate(-50%,-50%) ;
+}
+.delete-section p
+{
+    margin: 20px;
+    padding: 10px 5px;
+}
+.delete-section .del-btn-bolck
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+.delete-section .del-btn-bolck button
+{
+    padding: 3px 30px;
+    border-radius: 5px;
+    background-color: red;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+.delete-section .del-btn-bolck button a
+{
+    color: white;
+}
+.delete-section .del-btn-bolck button:nth-child(2)
+{
+    background-color: green;
+    border: none;
+}

@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/responsive.css' %}">
+    <title>To Do List-DBMS project</title>
+
+</head>
+
+<body>
+    <section class="main-section section">
+        <section class="admin_profile left-section">
+            <div class="close_toggle">
+                <p class="close_toggle_btn">&times;</p>
+            </div>
+            {% if author %}
+            <div class="img-div">
+                <img src="{{author.image.url}}" alt="">
+            </div>
+            <div class="info-section">
+                <p>name : <span>{{author.name}}</span><span> {{author.lname}}</span></p>
+                <p>email : <span>{{author.email}}</span></p>
+                <p>Mobile Number :<span>{{author.number}}</span> </p>
+                <p>Username :<span> {{author.author}}</span></p>
+                <p>Total Todo :<span> {{ total_todo }}</span></p>
+                <p>Done Todo :<span> {{ done_todo }}</span></p>
+                <p>Not Done todo :<span> {{ not_done }}</span></p>
+                {% endif %}
+            </div>
+            <div class="logout-section">
+                <button><a href="{% url 'logout' %}">Logout</a></button>
+            </div>
+
+        </section>
+        <section class="right-section">
+            <div class="heading-sec">
+                <h2>TO DO LIST</h2>
+                <div class="p-toggle-sec">
+                    <p>About</p>
+                    <div class="toggle_btn">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            
+            </div>
+            <div class="input-block">
+                <form action="/save_content" method="POST">
+                    {% csrf_token %}
+                    <div class="todo-content">
+                        <input type="text" name="content" placeholder="Enter What to Do" required />
+                    </div>
+                    <div class="send-btn">
+                        <button type="submit" class="send"><img src="{% static 'icon/add.png' %}" alt="add">
+                            Add</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+            <div class="all-to-do-list">
+                {% if all_todo %}
+
+                {% for todo in all_todo reversed%}
+                <div class="todo-item">
+                    <div class="todo-content">
+                        {% if todo.done %}
+                        <p><del> {{todo.content}}</del></p>
+                        {% else %}
+                        <p>{{todo.content}}</p>
+                        {% endif %}
+                        <span>{{todo.date_time}}</span>
+                    </div>
+                    <div class="action-btns">
+                        {% if todo.done %}
+                        <button></button>
+                        {% else %}
+                        <button><a href="/done_todo/{{todo.id}}"><img src="{% static 'icon/thumbs-up.png'%}" alt="done"
+                                    title="done"></a></button>
+                        {% endif %}
+
+                        <button><a href="/edit_content/{{todo.id}}"><img src="{% static 'icon/edit.png'%}" title="Edit"
+                                    alt=""></a> </button>
+                        <button class="delete-box"><img src="{% static 'icon/delete.png'%}"
+                                data-content="{{todo.content}} " data-value="{{todo.id}}" alt=""
+                                title="Delete"></button>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+            </div>
+        </section>
+        <section class="delete-section">
+        </section>
+    </section>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>

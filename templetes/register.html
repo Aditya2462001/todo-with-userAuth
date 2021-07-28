@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Registration | Todo App
+    </title>
+    <link rel="stylesheet" href="{% static '/css/register.css'%}">
+    <link rel="stylesheet" href="{%static 'css/responsive.css' %}">
+</head>
+
+<body>
+    <section class="register-section section">
+        {% if messages %}
+        <div class="message-section">
+            {% for message in messages %}
+            <p class="{{ message.tags }}"><strong>{{message}} </strong></p>
+            <button class="messageClose">close</button>
+                {% endfor %}
+            </div>
+                {% endif %}
+        <div class="container">
+            <div class="section-title">
+                <h2>Registration</h2>
+            </div>
+            <div class="register-form">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-item">
+                        <input type="text" name="fname" class="form-control" placeholder="First Name" required />
+                    </div>
+                    <div class="form-item">
+                        <input type="text" name="lname" class="form-control" placeholder="Last Name" />
+                    </div>
+                    <div class="form-item">
+                        <input type="email" name="email" class="form-control" placeholder="Email" required />
+                    </div>
+                    <div class="form-item">
+                        <input type="number" maxlength="10" name="number" class="form-control"
+                            placeholder="Phone-Number" required />
+                    </div>
+                    <div class="form-item">
+                        <input type="text" name="username" class="form-control" placeholder="username" required />
+                    </div>
+                    <div class="form-item">
+                        <input type="password" name="password" class="form-control" placeholder="password" required />
+                    </div>
+                    <div class="form-item">
+                        <input type="password" name="vpassword" class="form-control" placeholder="verify password"
+                            required />
+                    </div>
+                    <div class="form-item">
+                        <input type="file" accept="image/*" name="image" class="form-control-img" required />
+                    </div>
+                    <div class="form-btn">
+                        <button class="btn1" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+            <div class="have-account">
+                <p>Already Have an Account ?</p> <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+    </section>
+    <script>
+        const messegeCancel = document.querySelector('.messageClose');
+        const messageContainer = document.querySelector('.message-section');
+
+        messegeCancel.addEventListener("click",() =>
+        {
+            messageContainer.classList.add('active');
+        })
+    </script>
+</body>
+
+</html>

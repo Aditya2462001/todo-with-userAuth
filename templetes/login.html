@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Todo App</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{%static 'css/responsive.css' %}">
+</head>
+<body>
+    <section class="login-section section">
+        {% if messages %}
+        <div class="message-section">
+            {% for message in messages %}
+            <p class="{{ message.tags }}"><strong>{{message}} </strong></p>
+            <button class="messageClose">close</button>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="container">
+            <div class="section-title">
+                <h2>Login</h2>
+            </div>
+                <div class="login-form">
+                    <form  method="POST">
+                        {% csrf_token %}
+                        <div class="form-item">
+                            <img src="{%static 'icon/id-card.png'%}" alt="username">
+                            <input type="text" name="username" placeholder="UserName" class="form-control" required/>
+                        </div>
+                        <div class="form-item">
+                            <img src="{%static 'icon/secure.png'%}" alt="username">
+                            <input type="password" name="password" placeholder="Password" class="form-control" required/>
+                        </div>
+
+                        <div class="form-btn">
+                            <button type="submit" class="btn-1">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="not-register">
+                    <p>Don't Have An Account ? <a href="{% url 'register'%}">Register Now</a></p>
+                </div>
+        </div>
+    </section>
+    <!-- <script src="{% static '/js/login.js'%}"></script> -->
+    <script>
+        const messegeCancel = document.querySelector('.messageClose');
+        const messageContainer = document.querySelector('.message-section');
+
+        messegeCancel.addEventListener("click",() =>
+        {
+            messageContainer.classList.add('active');
+        })
+    </script>
+</body>
+</html>
